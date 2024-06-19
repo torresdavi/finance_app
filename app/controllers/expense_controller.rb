@@ -1,21 +1,17 @@
+# frozen_string_literal: true
+
 class ExpenseController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def new
-  end
+  def new; end
 
-  def create
-  end
+  def create; end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 
-  def delete
-  end
+  def delete; end
 
   private
 
