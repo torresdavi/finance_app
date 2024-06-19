@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monthly_income: 1.5
+  month: 1
+  user: one
+
+two:
+  monthly_income: 1.5
+  month: 1
+  user: two
