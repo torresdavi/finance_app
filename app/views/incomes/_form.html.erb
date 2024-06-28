@@ -1,0 +1,15 @@
+<%= form_with(model: @income, url: incomes_path, local: true) do |form| %>
+  <div>
+    <%= form.label :monthly_income, 'Renda Mensal' %>
+    <%= form.number_field :monthly_income, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :month, 'Mês' %>
+    <%= form.number_field :month, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit 'Enviar' %>
+  </div>
+<% end %>

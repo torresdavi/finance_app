@@ -1,0 +1,14 @@
+Temos a tela de orçamento doméstico
+ Tabela 0: Usuário (Nome, e-mail, senha); has_many Rendas, has_many Custos
+ Tabela 1: Renda do mês, mês em vigência e Id Usuário; belongs_to Usuário
+ Tabela 2: Custos (Nome, Valor, Categoria, Id Usuário); belongs_to Categorias / belongs_to Usuário
+ Tabela 3: Metas (Custos fixos, Conforto, Metas, Prazeres, Liberdade Financeira, Conhecimento, Id Usuário)
+
+
+  Categorias:
+    Custos fixos,
+    Conforto,
+    Metas,
+    Prazeres,
+    Liberdade Financeira,
+    Conhecimento
