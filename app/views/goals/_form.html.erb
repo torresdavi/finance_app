@@ -1,0 +1,35 @@
+<%= form_with(model: @goal, url: goals_path, local: true) do |form| %>
+  <div>
+    <%= form.label :fixed_cost, 'Custos Fixos' %>
+    <%= form.number_field :fixed_cost, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :comfort, 'Conforto' %>
+    <%= form.number_field :comfort, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :goals, 'Metas' %>
+    <%= form.number_field :goals, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :pleasures, 'Prazeres' %>
+    <%= form.number_field :pleasures, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :financial_freedom, 'Liberdade Financeira' %>
+    <%= form.number_field :financial_freedom, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :knowledge, 'Conhecimento' %>
+    <%= form.number_field :knowledge, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit 'Enviar' %>
+  </div>
+<% end %>
