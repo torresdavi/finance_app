@@ -13,7 +13,13 @@ class IncomesController < ApplicationController
     respond_to do |format|
       if @income.save
         format.html do
-          redirect_to incomes_path
+          flash[:notice] = 'Renda salva com sucesso!'
+          redirect_to new_incomes_path
+        end
+      else
+        format.html do
+          flash[:alert] = @income.errors.messages[:base][0]
+          redirect_to new_incomes_path
         end
       end
     end
@@ -21,9 +27,15 @@ class IncomesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @income.update(income_params)
+      if @income.save
         format.html do
-          redirect_to root_path
+          flash[:notice] = 'Renda salvas com sucesso!'
+          redirect_to new_incomes_path
+        end
+      else
+        format.html do
+          flash[:alert] = @income.errors.messages[:base][0]
+          redirect_to new_incomes_path
         end
       end
     end

@@ -3,7 +3,7 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
-  def index;end
+  def index; end
 
   def new; end
 
@@ -15,11 +15,13 @@ class GoalsController < ApplicationController
     respond_to do |format|
       if @goal.save
         format.html do
-          redirect_to goals_path
+          flash[:notice] = 'Metas salvas com sucesso!'
+          redirect_to new_goal_path
         end
       else
         format.html do
-          redirect_to goals_path
+          flash[:alert] = @goal.errors.messages[:base][0]
+          redirect_to new_goal_path
         end
       end
     end
@@ -27,9 +29,15 @@ class GoalsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @goal.update(goal_params)
+      if @goal.save
         format.html do
-          redirect_to root_path
+          flash[:notice] = 'Metas salvas com sucesso!'
+          redirect_to new_goal_path
+        end
+      else
+        format.html do
+          flash[:alert] = @goal.errors.messages[:base][0]
+          redirect_to new_goal_path
         end
       end
     end
