@@ -1,4 +1,10 @@
 <%= form_with(model: @goal, url: goals_path, local: true) do |form| %>
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% else %>
+    <div class="alert"><%= flash[:notice] %></div>
+  <% end %>
+  <br>
   <div>
     <%= form.label :fixed_cost, 'Custos Fixos' %>
     <%= form.number_field :fixed_cost, required: true %>

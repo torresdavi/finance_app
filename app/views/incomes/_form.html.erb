@@ -1,4 +1,9 @@
 <%= form_with(model: @income, url: incomes_path, local: true) do |form| %>
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% else %>
+    <div class="alert"><%= flash[:notice] %></div>
+<% end %>
   <div>
     <%= form.label :monthly_income, 'Renda Mensal' %>
     <%= form.number_field :monthly_income, required: true %>
