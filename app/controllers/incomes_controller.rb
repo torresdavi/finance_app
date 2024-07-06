@@ -29,7 +29,7 @@ class IncomesController < ApplicationController
     respond_to do |format|
       if @income.save
         format.html do
-          flash[:notice] = 'Renda salvas com sucesso!'
+          flash[:notice] = 'Renda salva com sucesso!'
           redirect_to new_incomes_path
         end
       else
