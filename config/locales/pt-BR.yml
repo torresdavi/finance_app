@@ -1,0 +1,10 @@
+pt-BR:
+  models:
+    expense:
+      categories:
+        fixed_cost: Custo fixo
+        comfort: Conforto
+        goals: Metas
+        pleasures: Prazeres
+        financial_freedom: Liberdade Financeira
+        knowledge: Conhecimento
