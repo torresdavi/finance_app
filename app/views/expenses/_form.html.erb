@@ -1,0 +1,25 @@
+<%= form_with(model: @expense, url: expenses_path, local: true) do |form| %>
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% else %>
+    <div class="alert"><%= flash[:notice] %></div>
+<% end %>
+  <div>
+    <%= form.label :name, 'Descrição' %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :expense_value, 'Valor da despesa' %>
+    <%= number_field_tag :expense_value, nil, step: 0.01, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :category, 'Tipo da despesa' %>
+    <%= form.select :category, categories_for_select, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit 'Enviar' %>
+  </div>
+<% end %>
