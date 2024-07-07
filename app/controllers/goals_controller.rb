@@ -3,7 +3,9 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
-  def index; end
+  def index
+    @goal = Goal.find_by(user: current_user)
+  end
 
   def new; end
 
