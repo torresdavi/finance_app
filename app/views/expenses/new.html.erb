@@ -1,2 +1,5 @@
-<h1>Expense#new</h1>
-<p>Find me in app/views/expense/new.html.erb</p>
+<div>
+  <h1>Informe suas despesas</h1>
+  <%= render 'form', expense: @expense %>
+  <%= link_to 'Voltar ao site', root_path %>
+</div>

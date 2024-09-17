@@ -12,5 +12,6 @@ class Expense < ApplicationRecord
     knowledge: 5
   }
 
+  attribute :expense_value, :float
   validates :name, :expense_value, :category, presence: true
 end
