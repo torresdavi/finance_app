@@ -2,6 +2,7 @@
 
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
+  before_action :goal, only: %i[edit]
 
   def index; end
 

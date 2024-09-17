@@ -1,2 +1,10 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="container">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <h1>Bem vindo <%= current_user.name %>.</h1>
+  <br/>
+
+  <%= render 'goals' %>
+
+  <%= link_to 'Deslogar', destroy_user_session_path, method: :delete %>
+</div>

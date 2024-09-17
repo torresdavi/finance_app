@@ -1,0 +1,29 @@
+<h3>Minhas Metas</h3> <br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Custos Fixos</th>
+      <th>Conforto</th>
+      <th>Metas</th>
+      <th>Prazeres</th>
+      <th>Liberdade Financeira</th>
+      <th>Conhecimento</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @goal.fixed_cost %>%</td>
+      <td><%= @goal.comfort %>%</td>
+      <td><%= @goal.goals %>%</td>
+      <td><%= @goal.pleasures %>%</td>
+      <td><%= @goal.financial_freedom %>%</td>
+      <td><%= @goal.knowledge %>%</td>
+      <td>100%</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to 'Editar Metas', edit_goal_path(@goal)  %>
+</div>
