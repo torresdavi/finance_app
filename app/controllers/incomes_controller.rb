@@ -2,8 +2,11 @@
 
 class IncomesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
+  before_action :income, only: %i[edit update]
 
-  def new; end
+  def new
+    @income = Income.new
+  end
 
   def edit; end
 
@@ -14,12 +17,12 @@ class IncomesController < ApplicationController
       if @income.save
         format.html do
           flash[:notice] = 'Renda salva com sucesso!'
-          redirect_to new_incomes_path
+          redirect_to root_path
         end
       else
         format.html do
           flash[:alert] = @income.errors.messages[:base][0]
-          redirect_to new_incomes_path
+          redirect_to new_income_path
         end
       end
     end
@@ -27,7 +30,7 @@ class IncomesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @income.save
+      if @income.update(incomes_params)
         format.html do
           flash[:notice] = 'Renda salva com sucesso!'
           redirect_to new_incomes_path
@@ -48,6 +51,6 @@ class IncomesController < ApplicationController
   end
 
   def income_params
-    params.permit(:monthly_income, :month)
+    params.permit(:monthly_income, :month, :year)
   end
 end

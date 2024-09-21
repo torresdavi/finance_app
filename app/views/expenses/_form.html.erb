@@ -1,25 +1,27 @@
-<%= form_with(model: @expense, url: expenses_path, local: true) do |form| %>
+<%= form_with(model: @expense, local: true) do |form| %>
 <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
 <% else %>
     <div class="alert"><%= flash[:notice] %></div>
 <% end %>
-  <div>
-    <%= form.label :name, 'Descrição' %>
-    <%= form.text_field :name, required: true %>
+  <div class="col-md-4">
+    <%= form.label :name, 'Descrição', class:'form-label' %>
+    <%= form.text_field :name, required: true, class:'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :expense_value, 'Valor da despesa' %>
-    <%= number_field_tag :expense_value, nil, step: 0.01, required: true %>
+  <div class="col-md-1">
+  <%= form.label :expense_value, 'Valor da despesa', class: 'form-label' %>
+  <%= form.number_field :expense_value, step: 0.01, required: true, class: 'form-control' %>
+</div>
+
+
+  <div class="col-md-1">
+    <%= form.label :category, 'Tipo da despesa', class:'form-label' %>
+    <%= form.select :category, categories_for_select, required: true, class:'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :category, 'Tipo da despesa' %>
-    <%= form.select :category, categories_for_select, required: true %>
-  </div>
-
-  <div>
-    <%= form.submit 'Enviar' %>
+  <div class="col-md-4 my-2">
+    <%= form.submit 'Enviar', class:'btn btn-success' %> |
+    <%= link_to 'Voltar ao site', root_path, class:'btn btn-warning' %>
   </div>
 <% end %>

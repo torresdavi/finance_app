@@ -5,6 +5,11 @@ class HomeController < ApplicationController
     redirect_to new_user_session_path unless current_user
 
     @goal = Goal.find_by(user: current_user)
-    @income = Income.find_by(user: current_user)
+    @incomes = Income.where(user: current_user)
+    @expenses = Expense.where(user: current_user)
   end
+
+  def recommend_channels; end
+
+  def feedbacks; end
 end

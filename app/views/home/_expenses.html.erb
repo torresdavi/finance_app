@@ -1,0 +1,26 @@
+<h3 class="text-center my-4">Minhas Despesas</h3> <br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th>Categoria</th>
+      <th colspan="2">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense|%>
+      <tr>
+        <td><%= expense.name %></td>
+        <td>R$ <%= expense.expense_value %></td>
+        <td><%= I18n.t("models.expense.categories.#{expense.category}") %></td>
+        <td><%= link_to "Editar", edit_expense_path(expense) %></td>
+        <td><%= link_to "Excluir", expense, data: { turbo_method: :delete } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to 'Cadastrar nova despesa',  new_expense_path %>
+</div>

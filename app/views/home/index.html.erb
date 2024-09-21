@@ -1,10 +1,19 @@
-<div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <h1>Bem vindo <%= current_user.name %>.</h1>
+<div class="container-fluid">
+  <% if notice %>
+  <div class="container-fluid position-relative">
+    <div class="alert alert-success position-absolute top-0 end-0">
+      <p><%= notice %></p>
+    </div>
+  </div>
+  <% elsif alert %>
+  <div class="container-fluid position-relative">
+    <div class="alert alert-danger position-absolute top-0 end-0">
+      <p><%= alert %></p>
+    </div>
+  </div>
+  <% end %>
+
+  <%= render 'expenses' %>
   <br/>
-
-  <%= render 'goals' %>
-
-  <%= link_to 'Deslogar', destroy_user_session_path, method: :delete %>
+  <%= render 'income' %>
 </div>

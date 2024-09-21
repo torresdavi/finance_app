@@ -2,13 +2,15 @@
 
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :goal, only: %i[edit]
+  before_action :goal, only: %i[edit update]
 
   def index
     @goal = Goal.find_by(user: current_user)
   end
 
-  def new; end
+  def new
+    @goal = Goal.new
+  end
 
   def edit; end
 
@@ -32,7 +34,7 @@ class GoalsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @goal.save
+      if @goal.update(goal_params)
         format.html do
           flash[:notice] = 'Metas salvas com sucesso!'
           redirect_to new_goal_path

@@ -1,3 +1,19 @@
-<div>
+<h3 class="text-center my-4">Minhas Rendas</h3> <br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Referência</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incomes.each do |income| %>
+    <tr>
+      <td>R$ <%= income.monthly_income %></td>
+      <td><%= month_integer_to_string(income.month) %>/<%= income.year %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-</div>
+<%= link_to 'Cadastrar nova Renda', new_income_path %>

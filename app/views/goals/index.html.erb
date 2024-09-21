@@ -1,26 +1,19 @@
-<h1>Minhas metas </h1>
+<h3 class="my-2 text-center">Minhas metas </h3>
 
+<%= pie_chart(
+  {
+    "Custos Fixos": @goal.fixed_cost,
+    "Conforto": @goal.comfort,
+    "Metas": @goal.goals,
+    "Prazeres": @goal.pleasures,
+    "Liberdade Financeira": @goal.financial_freedom,
+    "Conhecimento": @goal.knowledge
+  },
+  suffix: "%",
+  stacked: true,
+  donut: true
+) %>
 
-<div class="">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Custos Fixos</th>
-        <th>Conforto</th>
-        <th>Metas</th>
-        <th>Prazeres</th>
-        <th>Liberdade Financeira</th>
-        <th>Conhecimento</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @goal.fixed_cost %>%</td>
-        <td><%= @goal.comfort %>%</td>
-        <td><%= @goal.goals %>%</td>
-        <td><%= @goal.pleasures %>%</td>
-        <td><%= @goal.financial_freedom %>%</td>
-        <td><%= @goal.knowledge %>%</td>
-      </tr>
-  </tbody>
+<div class="text-center my-4">
+  <%= link_to 'Editar Metas', edit_goal_path(@goal) %>
 </div>
