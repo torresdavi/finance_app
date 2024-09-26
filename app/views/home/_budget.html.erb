@@ -1,0 +1,76 @@
+<h3 class="text-center my-4">Resumo</h3><br/>
+
+<div class="row d-flex">
+  <div class="col-md-6 text-center">
+    <table class="table table-bordered">
+      <thead>
+        <th>Budget</th>
+        <th>Valor Gasto</th>
+        <th>Devo Gastar</th>
+        <th>Utilizado</th>
+        <th>Total</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Custos Fixos</td>
+          <td>R$ <%= @budget_costs[:fixed_cost] %></td>
+          <td>R$ <%= @budget_remaining_balances[:fixed_cost] %></td>
+          <td class='text-success'><%= @budget_utilized_percentage[:fixed_cost] %>%</td>
+          <td><%= @budget_total_percentage[:fixed_cost] %>%</td>
+        </tr>
+        <tr>
+          <td>Conforto</td>
+          <td>R$ <%= @budget_costs[:comfort] %></td>
+          <td>R$ <%= @budget_remaining_balances[:comfort] %></td>
+          <td class='text-success'><%= @budget_utilized_percentage[:comfort] %>%</td>
+          <td><%= @budget_total_percentage[:comfort] %>%</td>
+        </tr>
+        <tr>
+          <td>Metas</td>
+          <td>R$ <%= @budget_costs[:goals] %></td>
+          <td>R$ <%= @budget_remaining_balances[:goals] %></td>
+          <td class='text-success'><%= @budget_utilized_percentage[:goals] %>%</td>
+          <td><%= @budget_total_percentage[:goals] %>%</td>
+        </tr>
+        <tr>
+          <td>Prazeres</td>
+          <td>R$ <%= @budget_costs[:pleasures] %></td>
+          <td>R$ <%= @budget_remaining_balances[:pleasures] %></td>
+          <td class='text-success'><%= @budget_utilized_percentage[:pleasures] %>%</td>
+          <td><%= @budget_total_percentage[:pleasures] %>%</td>
+        </tr>
+        <tr>
+          <td>Liberdade Financeira</td>
+          <td>R$ <%= @budget_costs[:financial_freedom] %></td>
+          <td>R$ <%= @budget_remaining_balances[:financial_freedom] %></td>
+          <td class='text-success'><%= @budget_utilized_percentage[:financial_freedom] %>%</td>
+          <td><%= @budget_total_percentage[:financial_freedom] %>%</td>
+        </tr>
+        <tr>
+          <td>Conhecimento</td>
+          <td>R$ <%= @budget_costs[:knowledge] %></td>
+          <td>R$ <%= @budget_remaining_balances[:knowledge] %></td>
+          <td class='text-success'><%= @budget_utilized_percentage[:knowledge] %>%</td>
+          <td><%= @budget_total_percentage[:knowledge] %>%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+        Teste
+    </div>
+    <div class="row">
+      Teste
+    </div>
+    <div class="row">
+      Teste
+    </div>
+    <div class="row">
+      Teste
+    </div>
+    <div class="row">
+      Teste
+    </div>
+  </div>
+</div>

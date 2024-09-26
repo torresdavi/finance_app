@@ -2,6 +2,8 @@
 
 class User < ApplicationRecord
   has_one :goal
+  has_many :expenses
+  has_many :incomes
   after_create :create_goals
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

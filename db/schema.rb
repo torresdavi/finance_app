@@ -10,54 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_18_160626) do
-  create_table "expenses", force: :cascade do |t|
-    t.string "name"
-    t.float "expense_value"
-    t.integer "category", default: 0
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_expenses_on_user_id"
+ActiveRecord::Schema[7.1].define(version: 20_240_918_160_626) do
+  create_table 'expenses', force: :cascade do |t|
+    t.string 'name'
+    t.float 'expense_value'
+    t.integer 'category', default: 0
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_expenses_on_user_id'
   end
 
-  create_table "goals", force: :cascade do |t|
-    t.integer "fixed_cost"
-    t.integer "comfort"
-    t.integer "goals"
-    t.integer "pleasures"
-    t.integer "financial_freedom"
-    t.integer "knowledge"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_goals_on_user_id"
+  create_table 'goals', force: :cascade do |t|
+    t.integer 'fixed_cost'
+    t.integer 'comfort'
+    t.integer 'goals'
+    t.integer 'pleasures'
+    t.integer 'financial_freedom'
+    t.integer 'knowledge'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_goals_on_user_id'
   end
 
-  create_table "incomes", force: :cascade do |t|
-    t.float "monthly_income"
-    t.integer "month"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "year"
-    t.index ["user_id"], name: "index_incomes_on_user_id"
+  create_table 'incomes', force: :cascade do |t|
+    t.float 'monthly_income'
+    t.integer 'month'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'year'
+    t.index ['user_id'], name: 'index_incomes_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'name'
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-  add_foreign_key "expenses", "users"
-  add_foreign_key "goals", "users"
-  add_foreign_key "incomes", "users"
+  add_foreign_key 'expenses', 'users'
+  add_foreign_key 'goals', 'users'
+  add_foreign_key 'incomes', 'users'
 end
