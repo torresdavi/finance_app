@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
       if @goal.save
         format.html do
           flash[:notice] = 'Metas salvas com sucesso!'
-          redirect_to new_goal_path
+          redirect_to root_path
         end
       else
         format.html do
@@ -41,8 +41,8 @@ class GoalsController < ApplicationController
         end
       else
         format.html do
-          flash[:alert] = @goal.errors.messages[:base][0]
-          redirect_to new_goal_path
+          flash[:alert] = @goal.errors.full_messages.join(', ')
+          render :edit
         end
       end
     end
@@ -55,6 +55,6 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    params.permit(:fixed_cost, :comfort, :goals, :pleasures, :financial_freedom, :knowledge)
+    params.require(:goal).permit(:fixed_cost, :comfort, :goals, :pleasures, :financial_freedom, :knowledge)
   end
 end

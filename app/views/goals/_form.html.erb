@@ -1,9 +1,9 @@
 <div class="mx-4">
-<%= form_with(model: @goal, url: goals_path, local: true) do |form| %>
+<%= form_with(model: @goal, local: true) do |form| %>
   <% if flash[:alert] %>
-    <div class="alert"><%= flash[:alert] %></div>
-  <% else %>
-    <div class="alert"><%= flash[:notice] %></div>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% elsif flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
   <% end %>
   <br>
   <div class="col-md-1">

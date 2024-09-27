@@ -1,7 +1,6 @@
-<h3 class="text-center my-4">Resumo</h3><br/>
-
-<div class="row d-flex">
+<div class="row d-flex my-4">
   <div class="col-md-6 text-center">
+    <h3 class="text-center">Resumo</h3>
     <table class="table table-bordered">
       <thead>
         <th>Budget</th>
@@ -57,20 +56,22 @@
     </table>
   </div>
   <div class="col-md-4">
-    <div class="row">
-        Teste
-    </div>
-    <div class="row">
-      Teste
-    </div>
-    <div class="row">
-      Teste
-    </div>
-    <div class="row">
-      Teste
-    </div>
-    <div class="row">
-      Teste
+    <h3 class="text-center">Minhas metas </h3>
+      <%= pie_chart(
+        {
+          "Custos Fixos": @goal.fixed_cost,
+          "Conforto": @goal.comfort,
+          "Metas": @goal.goals,
+          "Prazeres": @goal.pleasures,
+          "Liberdade Financeira": @goal.financial_freedom,
+          "Conhecimento": @goal.knowledge
+        },
+        suffix: "%",
+        legend: false,
+        donut: true
+      ) %>
+    <div class="text-center my-2">
+      <%= link_to 'Editar Metas', edit_goal_path(@goal) %>
     </div>
   </div>
 </div>

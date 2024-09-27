@@ -37,8 +37,8 @@ class IncomesController < ApplicationController
         end
       else
         format.html do
-          flash[:alert] = @income.errors.messages[:base][0]
-          redirect_to new_incomes_path
+          flash[:alert] = @income.errors.full_messages.join(', ')
+          render :edit
         end
       end
     end
