@@ -1,0 +1,7 @@
+<tr>
+  <td><%= expense.name %></td>
+  <td>R$ <%= expense.expense_value %></td>
+  <td><%= I18n.t("models.expense.categories.#{expense.category}") %></td>
+  <td><%= link_to "Editar", edit_expense_path(expense) %></td>
+  <td><%= link_to "Excluir", expense, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+</tr>

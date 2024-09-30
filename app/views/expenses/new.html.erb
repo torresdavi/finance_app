@@ -1,4 +1,25 @@
-<div>
-  <h1>Informe suas despesas</h1>
-  <%= render 'form', expense: @expense %>
-</div>
+<turbo-frame id="new_expense">
+  <%= form_with(model: @expense, local: false) do |form| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= form.label :name, 'Descrição', class:'form-label' %>
+      <%= form.text_field :name, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4">
+    <%= form.label :expense_value, 'Valor da despesa', class: 'form-label' %>
+    <%= form.number_field :expense_value, step: 0.01, required: true, class: 'form-control' %>
+  </div>
+
+    <div class="col-md-4">
+      <%= form.label :category, 'Tipo da despesa', class:'form-label' %>
+      <%= form.select :category, categories_for_select, required: true, class:'form-control' %>
+    </div>
+
+    <div class="my-2">
+      <%= form.submit 'Enviar', class:'btn btn-success' %>
+    </div>
+  </div>
+  <% end %>
+</turbo-frame>
+

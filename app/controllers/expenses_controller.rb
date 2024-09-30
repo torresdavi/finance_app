@@ -19,16 +19,18 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params.merge(user: current_user))
 
-    respond_to do |format|
-      if @expense.save
-        format.html do
-          flash[:notice] = 'Despesa cadastrada com sucesso!'
-          redirect_to root_path
+    if @expense.save
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append('expenses_body', partial: 'expenses/expense',
+                                                                    locals: { expense: @expense })
         end
-      else
-        format.html do
-          flash[:alert] = @expense.errors.messages[:base][0]
-          redirect_to new_expense_path
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace('new_expense', partial: 'expenses/form',
+                                                                   locals: { expense: @expense })
         end
       end
     end
