@@ -77,4 +77,5 @@ group :test do
   gem 'capybara'
   gem 'rspec-rails', '~> 7.0.0'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 6.0'
 end

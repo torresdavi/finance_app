@@ -14,7 +14,7 @@
 /storage
 /node_modules
 .vscode
-
+/storage
 # Used by dotenv library to load environment variables.
 # .env
 
