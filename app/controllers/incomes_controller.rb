@@ -4,6 +4,10 @@ class IncomesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   before_action :income, only: %i[edit update]
 
+  def index
+    @incomes = Income.where(user_id: current_user)
+  end
+
   def new
     @income = Income.new
   end
@@ -13,34 +17,22 @@ class IncomesController < ApplicationController
   def create
     @income = Income.new(income_params.merge(user: current_user))
 
-    respond_to do |format|
-      if @income.save
-        format.html do
-          flash[:notice] = 'Renda salva com sucesso!'
-          redirect_to root_path
-        end
-      else
-        format.html do
-          flash[:alert] = @income.errors.messages[:base][0]
-          redirect_to new_income_path
-        end
-      end
+    if @income.save
+      flash[:notice] = 'Renda salva com sucesso!'
+      redirect_to incomes_path
+    else
+      flash[:alert] = @income.errors.full_messages.join(', ')
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @income.update(incomes_params)
-        format.html do
-          flash[:notice] = 'Renda salva com sucesso!'
-          redirect_to new_incomes_path
-        end
-      else
-        format.html do
-          flash[:alert] = @income.errors.full_messages.join(', ')
-          render :edit
-        end
-      end
+    if @income.update(income_params)
+      flash[:notice] = 'Renda salva com sucesso!'
+      redirect_to root_path
+    else
+      flash[:alert] = @income.errors.full_messages.join(', ')
+      render :edit
     end
   end
 
@@ -51,6 +43,6 @@ class IncomesController < ApplicationController
   end
 
   def income_params
-    params.permit(:monthly_income, :month, :year)
+    params.require(:income).permit(:monthly_income, :month, :year)
   end
 end
