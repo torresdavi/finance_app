@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class IncomesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
-  before_action :income, only: %i[edit update]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :income, only: [:edit, :update]
 
   def index
     @incomes = Income.where(user_id: current_user)

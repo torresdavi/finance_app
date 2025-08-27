@@ -10,11 +10,10 @@
 /test/version_tmp/
 /tmp/
 /config/master.key
-/log/development.log
+/log/*
 /storage
 /node_modules
 .vscode
-/storage
 # Used by dotenv library to load environment variables.
 # .env
 

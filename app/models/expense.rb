@@ -9,7 +9,7 @@ class Expense < ApplicationRecord
     goals: 2,
     pleasures: 3,
     financial_freedom: 4,
-    knowledge: 5
+    knowledge: 5,
   }
 
   attribute :expense_value, numericality: true

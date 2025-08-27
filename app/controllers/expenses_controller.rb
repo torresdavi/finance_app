@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
-  before_action :expense, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :expense, only: [:show, :edit, :update, :destroy]
 
   def index
     @expenses = Expense.where(user_id: current_user.id)
