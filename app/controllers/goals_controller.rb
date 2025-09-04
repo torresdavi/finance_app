@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class GoalsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
-  before_action :goal, only: %i[edit update]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :goal, only: [:edit, :update]
 
   def index
     @goal = Goal.find_by(user: current_user)
@@ -15,20 +15,14 @@ class GoalsController < ApplicationController
   def edit; end
 
   def create
-    @goal = Goal.new(goal_params.merge(user: current_user))
+    @goal = current_user.goals.build(goal_params)
 
-    respond_to do |format|
-      if @goal.save
-        format.html do
-          flash[:notice] = 'Metas salvas com sucesso!'
-          redirect_to root_path
-        end
-      else
-        format.html do
-          flash[:alert] = @goal.errors.messages[:base][0]
-          redirect_to new_goal_path
-        end
-      end
+    if @goal.save
+      flash[:notice] = 'Metas salvas com sucesso!'
+      redirect_to root_path
+    else
+      flash[:alert] = @goal.errors.full_messages.join(', ')
+      render :new
     end
   end
 

@@ -13,7 +13,7 @@ module IncomeHelper
     9 => 'Setembro',
     10 => 'Outubro',
     11 => 'Novembro',
-    12 => 'Dezembro'
+    12 => 'Dezembro',
   }.freeze
 
   def month_integer_to_string(month)
