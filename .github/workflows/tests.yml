@@ -6,8 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1.2"
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - run: bundle exec rspec
+
+      - name: Install Dependencies
+        run: bundle install
+
+      - name: Execute RSpec
+        run: bundle exec rspec -f documentation

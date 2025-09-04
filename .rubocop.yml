@@ -10,6 +10,7 @@ AllCops:
     - "vendor/**/*"
     - "spec/fixtures/**/*"
     - "Gemfile"
+    - "bin/bundle"
 
 Style/Documentation:
   Enabled: false
