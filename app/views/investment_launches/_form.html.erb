@@ -1,0 +1,57 @@
+<%= form_with(model: InvestmentLaunch, local: false) do |form| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= form.label :asset_name, class:'form-label' %>
+      <%= form.text_field :asset_name, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-2">
+      <%= form.label :asset_type, class: 'form-label' %>
+      <%= form.select :asset_type, asset_types, required: true, class: 'form-control' %>
+    </div>
+
+    <div class="col-md-1">
+      <%= form.label :coin_type, class:'form-label' %>
+      <%= form.select :coin_type, coin_types, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :order_type, class:'form-label' %>
+      <%= form.select :order_type, order_types, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :order_date, class:'form-label' %>
+      <%= form.date_field :order_date, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :unitary_price, class:'form-label' %>
+      <%= form.number_field :unitary_price, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :quantity, class:'form-label' %>
+      <%= form.number_field :quantity, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :order_total_value, class:'form-label' %>
+      <%= form.number_field :order_total_value, required: true, class:'form-control', readonly: true %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :broker, class:'form-label' %>
+      <%= form.text_field :broker, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :observation, class:'form-label' %>
+      <%= form.text_field :observation, required: true, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4 my-2">
+      <%= form.submit 'Enviar', class:'btn btn-success' %>
+    </div>
+  </div>
+<% end %>
