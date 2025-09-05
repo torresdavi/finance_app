@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_241_002_154_829) do
+ActiveRecord::Schema[7.1].define(version: 20_250_904_211_140) do
   create_table 'expenses', force: :cascade do |t|
     t.string 'name'
     t.float 'expense_value'
@@ -48,6 +46,23 @@ ActiveRecord::Schema[7.1].define(version: 20_241_002_154_829) do
     t.index ['user_id'], name: 'index_incomes_on_user_id'
   end
 
+  create_table 'investment_launches', force: :cascade do |t|
+    t.integer 'asset_type', null: false
+    t.integer 'coin_type', default: 0, null: false
+    t.string 'asset_name', null: false
+    t.integer 'order_type', null: false
+    t.date 'order_date', null: false
+    t.float 'quantity', null: false
+    t.float 'unitary_price', null: false
+    t.float 'order_total_value', null: false
+    t.string 'broker', null: false
+    t.text 'observation'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_investment_launches_on_user_id'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
@@ -64,4 +79,5 @@ ActiveRecord::Schema[7.1].define(version: 20_241_002_154_829) do
   add_foreign_key 'expenses', 'users'
   add_foreign_key 'goals', 'users'
   add_foreign_key 'incomes', 'users'
+  add_foreign_key 'investment_launches', 'users'
 end
