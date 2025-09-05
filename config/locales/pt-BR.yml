@@ -1,10 +1,40 @@
 pt-BR:
-  models:
-    expense:
-      categories:
-        fixed_cost: Custo fixo
-        comfort: Conforto
-        goals: Metas
-        pleasures: Prazeres
-        financial_freedom: Liberdade Financeira
-        knowledge: Conhecimento
+  activerecord:
+    attributes:
+      models:
+        expense:
+          categories:
+            fixed_cost: Custo fixo
+            comfort: Conforto
+            goals: Metas
+            pleasures: Prazeres
+            financial_freedom: Liberdade Financeira
+            knowledge: Conhecimento
+        investment_launch:
+          asset_type: Tipo
+          asset_name: Nome do Ativo
+          coin_type: Moeda
+          order_type: Tipo da Operação
+          order_date: Data da Operação
+          order_total_value: Total da Compra
+          quantity: Quantidade
+          unitary_price: Preço Unitário
+          broker: Corretora
+          observation: Observação
+
+    enums:
+      investment_launch:
+        asset_types:
+          criptocoin: Criptomoeda
+          international_etf: ETF Internacional
+          national_etf: ETF Nacional
+          stock_exchange_shares: Ações
+          direct_treasury: Tesouro Direto
+          real_estate_fund: Fundo Imobiliário
+          dollar: Dólar
+        order_types:
+          sell: Venda
+          buy: Compra
+        coin_types:
+          brl: Real
+          usd: Dólar
