@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class GoalsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :goal, only: [:edit, :update]
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :goal, only: %i[edit update]
 
   def index
     @goal = Goal.find_by(user: current_user)
