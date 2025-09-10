@@ -1,2 +1,60 @@
-<h1>InvestmentLaunch#show</h1>
-<p>Find me in app/views/investment_launch/show.html.erb</p>
+<div class="col-12 px-4">
+  <h3 class="py-2">Lançamento: "<%= @investment_launch.asset_name %> executado em <%= format_to_br_date(@investment_launch.order_date)%>"</h3>
+
+  <div class="row py-3">
+    <div class="col-md-4 my-1">
+      <label for="asset_name" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.asset_name') %></label>
+      <input type='text' class='form-control' value="<%= @investment_launch.asset_name %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="asset_type" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.asset_type') %></label>
+      <input type='text' class='form-control' value="<%= I18n.t("activerecord.enums.investment_launch.asset_types.#{@investment_launch.asset_type}") %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="coin_type" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.coin_type') %></label>
+      <input type='text' class='form-control' value="<%= I18n.t("activerecord.enums.investment_launch.coin_types.#{@investment_launch.coin_type}") %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="order_type" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.order_type') %></label>
+      <input type='text' class='form-control' value="<%= I18n.t("activerecord.enums.investment_launch.order_types.#{@investment_launch.order_type}") %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="order_date" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.order_date') %></label>
+      <input type='text' class='form-control' value="<%= format_to_br_date(@investment_launch.order_date) %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="unitary_price" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.unitary_price') %></label>
+      <input type='text' class='form-control' value="<%= @investment_launch.unitary_price %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="quantity" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.quantity') %></label>
+      <input type='text' class='form-control' value="<%= @investment_launch.quantity %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="order_total_value" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.order_total_value') %></label>
+      <input type='text' class='form-control' value="<%= @investment_launch.order_total_value %>" readonly>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <label for="broker" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.broker') %></label>
+      <input type='text' class='form-control' value="<%= @investment_launch.broker %>" readonly>
+    </div>
+
+    <div class="col-md-10 my-1">
+      <label for="observation" class="form-label"><%= I18n.t('activerecord.attributes.investment_launch.observation') %></label>
+      <input type='text' class='form-control' rows="2" value="<%= @investment_launch.observation %>" readonly>
+    </div>
+  </div>
+
+  <div class="buttons col-md-4">
+    <%= link_to 'Editar', edit_investment_launch_path(@investment_launch), class: 'btn btn-outline-warning' %>
+    <%= link_to 'Voltar', investment_launches_path, class: 'btn btn-outline-success ' %>
+  </div>
+</div>
