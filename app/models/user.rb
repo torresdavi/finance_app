@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, stretches: 8
 
   def create_goals
     Goal.create!(user_id: id, fixed_cost: 30, comfort: 15, goals: 10, pleasures: 10, financial_freedom: 30,
