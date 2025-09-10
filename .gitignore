@@ -13,6 +13,7 @@
 /log/*
 /storage
 /node_modules
+/coverage
 .vscode
 # Used by dotenv library to load environment variables.
 # .env
