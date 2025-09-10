@@ -75,7 +75,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 7.0.0'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 6.0'
+  gem 'simplecov', require: false
 end

@@ -1,0 +1,54 @@
+<div class="col-12 px-4">
+  <h1 class="my-3">Meus Lançamentos</h1>
+  <% if flash[:notice] %>
+    <div class="col-4 alert alert-success justify-content-end">
+      <%= flash[:notice] %>
+      <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+  <div class="col-10 table-responsive">
+    <table class="table table-bordered table-hover px-4">
+      <thead class="thead-dark text-center">
+        <th>Ativo</th>
+        <th>Tipo</th>
+        <th>Moeda</th>
+        <th>Ação</th>
+        <th>Data</th>
+        <th>Preço Unitário</th>
+        <th>Quantidade</th>
+        <th>Valor Total</th>
+        <th>Corretora</th>
+        <th colspan="2">Ações</th>
+      </thead>
+      <tbody>
+        <% @investment_launches.each do |investment_launch| %>
+          <tr>
+            <td class="text-center"><%= investment_launch.asset_name %></td>
+            <td class="text-center"><%= I18n.t("activerecord.enums.investment_launch.asset_types.#{investment_launch.asset_type}") %></td>
+            <td class="text-center"><%= I18n.t("activerecord.enums.investment_launch.coin_types.#{investment_launch.coin_type}") %></td>
+            <td class="text-center"><%= I18n.t("activerecord.enums.investment_launch.order_types.#{investment_launch.order_type}") %></td>
+            <td class="text-center"><%= format_to_br_date(investment_launch.order_date) %></td>
+            <td class="text-center"><%= investment_launch.coin_type == 'brl' ? format_to_brl(investment_launch.unitary_price) : format_to_usd(investment_launch.unitary_price) %></td>
+            <td class="text-center"><%= investment_launch.quantity %></td>
+            <td class="text-center"><%= investment_launch.coin_type == 'brl' ? format_to_brl(investment_launch.order_total_value) : format_to_usd(investment_launch.order_total_value) %></td>
+            <td class="text-center"><%= investment_launch.broker %></td>
+            <td class="text-center">
+              <%= link_to 'Editar', edit_investment_launch_path(investment_launch), class: 'btn btn-outline-primary btn-sm', 'data-turbo': false %>
+            </td>
+
+            <td class="text-center">
+              <%= button_to 'Excluir', investment_launch_path(investment_launch), method: :delete, class: 'btn btn-outline-danger btn-sm', 'data-turbo': false, id: 'delete-button' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="buttons py-2">
+    <%= link_to 'Novo Lançamento', new_investment_launch_path, class: 'btn btn-success' %>
+  </div>
+</div>

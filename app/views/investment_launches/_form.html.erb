@@ -1,0 +1,70 @@
+<%= form_with model: @investment_launch, novalidate: true, local: true, data: { turbo: false } do |form| %>
+  <% if @investment_launch.errors.any? %>
+    <div class="alert alert-danger">
+      Por favor, corrija os erros abaixo.
+      <ul>
+        <% @investment_launch.errors.full_messages.uniq.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <br/>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4 my-1">
+      <%= form.label :asset_name, I18n.t('activerecord.attributes.investment_launch.asset_name'), class:'form-label' %>
+      <%= form.text_field :asset_name, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :asset_type, I18n.t('activerecord.attributes.investment_launch.asset_type'), class: 'form-label' %>
+      <%= form.select :asset_type, asset_types, {default: :buy}, class:'form-select' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :coin_type, I18n.t('activerecord.attributes.investment_launch.coin_type'), class:'form-label' %>
+      <%= form.select :coin_type, coin_types, {}, class:'form-select' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :order_type, I18n.t('activerecord.attributes.investment_launch.order_type'), class:'form-label' %>
+      <%= form.select :order_type, order_types, {}, class:'form-select' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :order_date, I18n.t('activerecord.attributes.investment_launch.order_date'), class:'form-label' %>
+      <%= form.date_field :order_date, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :unitary_price, I18n.t('activerecord.attributes.investment_launch.unitary_price'), class:'form-label' %>
+      <%= form.text_field :unitary_price, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :quantity, I18n.t('activerecord.attributes.investment_launch.quantity'), class:'form-label' %>
+      <%= form.text_field :quantity, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :order_total_value, I18n.t('activerecord.attributes.investment_launch.order_total_value'), class:'form-label' %>
+      <%= form.text_field :order_total_value, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :broker, I18n.t('activerecord.attributes.investment_launch.broker'), class:'form-label' %>
+      <%= form.text_field :broker, class:'form-control' %>
+    </div>
+
+    <div class="col-md-4 my-1">
+      <%= form.label :observation, I18n.t('activerecord.attributes.investment_launch.observation'), class:'form-label' %>
+      <%= form.text_field :observation, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="buttons col-md-4 my-2">
+    <%= form.submit 'Enviar', class:'btn btn-success' %>
+    <%= link_to 'Voltar', investment_launches_path, class: 'btn btn-warning text-white' %>
+  </div>
+<% end %>
