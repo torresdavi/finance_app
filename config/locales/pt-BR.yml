@@ -1,26 +1,25 @@
 pt-BR:
   activerecord:
     attributes:
-      models:
-        expense:
-          categories:
-            fixed_cost: Custo fixo
-            comfort: Conforto
-            goals: Metas
-            pleasures: Prazeres
-            financial_freedom: Liberdade Financeira
-            knowledge: Conhecimento
-        investment_launch:
-          asset_type: Tipo
-          asset_name: Nome do Ativo
-          coin_type: Moeda
-          order_type: Tipo da Operação
-          order_date: Data da Operação
-          order_total_value: Total da Compra
-          quantity: Quantidade
-          unitary_price: Preço Unitário
-          broker: Corretora
-          observation: Observação
+      expense:
+        categories:
+          fixed_cost: Custo fixo
+          comfort: Conforto
+          goals: Metas
+          pleasures: Prazeres
+          financial_freedom: Liberdade Financeira
+          knowledge: Conhecimento
+      investment_launch:
+        asset_type: Tipo
+        asset_name: Nome do Ativo
+        coin_type: Moeda
+        order_type: Tipo da Operação
+        order_date: Data da Operação
+        order_total_value: Valor Total
+        quantity: Quantidade
+        unitary_price: Preço Unitário
+        broker: Corretora
+        observation: Observação
 
     enums:
       investment_launch:
@@ -36,5 +35,29 @@ pt-BR:
           sell: Venda
           buy: Compra
         coin_types:
-          brl: Real
-          usd: Dólar
+          brl: Real R$
+          usd: Dólar $
+
+    errors:
+      messages:
+        record_invalid: Registro inválido.
+        blank: "não pode ficar em branco"
+        not_a_number: "deve ser um número"
+      models:
+        investment_launch:
+          attributes:
+            asset_name:
+              blank: "não pode ficar em branco"
+            order_date:
+              blank: "não pode ficar em branco"
+            order_total_value:
+              blank: "não pode ficar em branco"
+              not_a_number: "deve ser um número"
+            quantity:
+              blank: "não pode ficar em branco"
+              not_a_number: "deve ser um número"
+            unitary_price:
+              blank: "não pode ficar em branco"
+              not_a_number: "deve ser um número"
+            broker:
+              blank: "não pode ficar em branco"
