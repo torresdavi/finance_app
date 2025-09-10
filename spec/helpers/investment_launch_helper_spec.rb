@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
-# frozen_literal_string
 require 'rails_helper'
 
 RSpec.describe InvestmentLaunchHelper, type: :helper do
   describe 'asset_types' do
     it 'should return assets collection translated to PT-BR' do
       expect(helper.asset_types).to contain_exactly(
-        ['Criptomoeda', 0], ['ETF Internacional', 1], ['ETF Nacional', 2],
-        ['Ações', 3], ['Tesouro Direto', 4], ['Fundo Imobiliário', 5],
-        ['Dólar', 6]
+        ['Criptomoeda', 'criptocoin'],
+        ['ETF Internacional', 'international_etf'],
+        ['ETF Nacional', 'national_etf'],
+        ['Ações', 'stock_exchange_shares'],
+        ['Tesouro Direto', 'direct_treasury'],
+        ['Fundo Imobiliário', 'real_estate_fund'],
+        ['Dólar', 'dollar']
       )
     end
   end
@@ -17,7 +20,7 @@ RSpec.describe InvestmentLaunchHelper, type: :helper do
   describe 'order_types' do
     it 'should return order types collection translated to PT-BR' do
       expect(helper.order_types).to contain_exactly(
-        ['Venda', 0], ['Compra', 1]
+        ['Venda', 'sell'], ['Compra', 'buy']
       )
     end
   end
@@ -25,7 +28,7 @@ RSpec.describe InvestmentLaunchHelper, type: :helper do
   describe 'coin_types' do
     it 'should return coin types collection translated to PT-BR' do
       expect(helper.coin_types).to contain_exactly(
-        ['Real', 0], ['Dólar', 1]
+        ['Real R$', 'brl'], ['Dólar $', 'usd']
       )
     end
   end
